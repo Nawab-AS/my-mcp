@@ -1,30 +1,53 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue'
+import Avatar from './components/Avatar.vue'
+
+const initials = ref('HS')
 </script>
 
 <template>
-  <div>
-    <a href="https://electron-vite.github.io" target="_blank">
-      <img src="/electron-vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="app">
+    <div id="sidebar">
+      <div id="account">
+        <span>
+          <Avatar :initials="initials" />
+          <svg height="30" width="30" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="28,7.5 2,7.5 15,30" />
+          </svg>
+        </span>
+      </div>
+    </div>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+#sidebar {
+  width: 200px;
+  height: 100vh;
+  background-color: var(--menu1);
+  border-right: 1px solid var(--outline);
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+#account {
+  padding: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--outline);
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+#account>span {
+  display: flex;
+  align-items: center;
+}
+
+#account>span>svg {
+  fill: var(--select);
+  transition: fill 0.2s ease;
+  scale: 0.5;
+}
+
+#account>span>svg:hover {
+  fill: var(--menu-hover);
 }
 </style>
