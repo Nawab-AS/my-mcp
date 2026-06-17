@@ -11,10 +11,14 @@ const initials = ref('HS')
       <div id="account">
         <span>
           <Avatar :initials="initials" />
-          <svg height="30" width="30" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="28,7.5 2,7.5 15,30" />
+          <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" id="dropdown-button">
+            <use href="/images.svg#icon" />
           </svg>
         </span>
+
+        <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" id="settings-button">
+          <use href="/images.svg#settings-gear" />
+        </svg>
       </div>
     </div>
   </div>
@@ -41,13 +45,26 @@ const initials = ref('HS')
   align-items: center;
 }
 
-#account>span>svg {
-  fill: var(--select);
-  transition: fill 0.2s ease;
-  scale: 0.5;
+#dropdown-button {
+  --dropdown-color: var(--select);
+  transition-duration: 0.2s;
+  scale: 0.3;
 }
 
-#account>span>svg:hover {
-  fill: var(--menu-hover);
+#dropdown-button:hover {
+  --dropdown-color: var(--menu-hover);
+  scale: 0.4;
 }
+
+#settings-button {
+  --settings-color: var(--select);
+  --bg-color: var(--bg);
+  transition-duration: 0.2s;
+}
+
+#settings-button:hover {
+  --settings-color: var(--menu-hover);
+  scale: 1.15;
+}
+
 </style>

@@ -28,6 +28,10 @@ const avatarColor = computed(() => {
 
 
 <style scoped>
+div {
+  user-select: none;
+}
+
 #initials {
   width: 30px;
   height: 30px;
